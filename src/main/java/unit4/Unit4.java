@@ -6,7 +6,16 @@ public class Unit4 {
         // Test your methods here by creating an instance and calling methods
         Unit4 unit = new Unit4();
         // Example: test sumNumbers
-        System.out.println("sumNumbers(5) = " + unit.sumNumbers(5));  // Expected: 15
+        System.out.println("sumNumbers(5) = " + unit.sumNumbers(5));
+        System.out.println("repeatString(hi,5) = " + unit.repeatString("hi",5));
+        System.out.println("findFactorial(5) = " + unit.findFactorial(5));
+        System.out.println("countVowels(Hello World) = " + unit.countVowels("Hello World"));
+        System.out.println("isPalindrome(racecar) = " + unit.isPalindrome("racecar"));
+        System.out.println("isPalindrome(RaceCar) = " + unit.isPalindrome("RaceCar"));
+        unit.printAsteriskPatterns(3);
+        unit.multiplicationTable(3);
+
+          // Expected: 15
     }
 
     /**
@@ -30,7 +39,17 @@ public class Unit4 {
      */
     public int sumNumbers(int n) {
         // TODO: Implement this method
-        return 0;
+        if (n <= 0){
+            return 0;
+        }
+        else{
+            int sum = 0;
+            for(int i=1; i <= n; i++){
+                sum += i;
+            }
+            return sum;
+        }
+        
     }
 
     /**
@@ -55,7 +74,18 @@ public class Unit4 {
      */
     public String repeatString(String str, int n) {
         // TODO: Implement this method
-        return "";
+        if(n==0 || str == ""){
+            return "";
+        }
+        else{
+            int i = 0;
+            String test = "";
+            while(i != n){
+                test += str;
+                i++;
+            }
+            return test;
+        }
     }
 
     /**
@@ -79,7 +109,16 @@ public class Unit4 {
      */
     public int findFactorial(int n) {
         // TODO: Implement this method
-        return 0;
+       if(n<=1){
+        return 1;
+       }
+       else{
+        int product = 1;
+        for(int i = 1; i<=n; i++){
+            product *= i;
+        }
+        return product;
+       }
     }
 
     /**
@@ -103,7 +142,15 @@ public class Unit4 {
      */
     public int countVowels(String str) {
         // TODO: Implement this method
-        return 0;
+        int count = 0;
+        for(int i = 0; i < str.length(); i++){
+            char c = Character.toLowerCase(str.charAt(i));
+            if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
+                count++;
+            }
+        }
+        return count;
+
     }
 
     /**
@@ -130,7 +177,17 @@ public class Unit4 {
      */
     public boolean isPalindrome(String str) {
         // TODO: Implement this method
-        return false;
+        int left = 0;
+        int right = str.length() - 1;
+        while(left < right){
+            if(str.charAt(left) != str.charAt(right)){
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
+
     }
 
     /**
@@ -161,6 +218,26 @@ public class Unit4 {
      */
     public void printAsteriskPatterns(int n) {
         // TODO: Implement this method
+        // Pattern 1: Single line of n asterisks
+        for (int i = 0; i < n; i++) {
+            System.out.print("*");
+        }
+        System.out.println();
+        // Pattern 2: n x n square of asterisks
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+        // Pattern 3: Right triangle with n rows
+        for (int i = 1; i <= n; i++) {
+            for (int j = 0; j < i; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+
     }
 
     /**
@@ -185,5 +262,11 @@ public class Unit4 {
      */
     public void multiplicationTable(int n) {
         // TODO: Implement this method
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n; j++) {
+                System.out.print(i * j + "\t");
+            }
+            System.out.println();
+        }
     }
 }
